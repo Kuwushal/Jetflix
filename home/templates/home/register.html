@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - JetFlix</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .container { background: #222; padding: 30px; border-radius: 8px; width: 350px; }
+    input { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 4px; border: none; }
+    button { width: 100%; padding: 10px; background: purple; border: none; color: #fff; cursor: pointer; font-weight: bold; }
+    button:hover { background: #800080; }
+    a { color: #aaa; text-decoration: none; }
+    a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Create Account</button>
+</form>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+  </div>
+</body>
+</html>

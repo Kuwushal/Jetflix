@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment - JetFlix</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .container { background: #222; padding: 30px; border-radius: 8px; width: 350px; text-align: center; }
+    button { width: 80%; padding: 12px; margin: 10px 0; background: purple; border: none; color: #fff; cursor: pointer; font-weight: bold; border-radius: 5px; }
+    button:hover { background: #800080; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Choose Payment Method</h2>
+    <p>Select one of the options below to complete your subscription:</p>
+
+    <form method="post" action="{% url 'payment_esewa' %}">
+      {% csrf_token %}
+      <button type="submit">Pay with eSewa</button>
+    </form>
+
+    <form method="post" action="{% url 'payment_stripe' %}">
+      {% csrf_token %}
+      <button type="submit">Pay with Stripe</button>
+    </form>
+  </div>
+</body>
+</html>
